@@ -9,6 +9,7 @@ fetch(sheetURL)
   .then((csvText) => handleResponse(csvText));
 
 function generateTable(sheet) {
+  console.log('wwww');
   const table = document.createElement("table");
 
   console.log(sheet);
@@ -57,6 +58,8 @@ function handleResponse(csvText) {
   let sheetObjects = csvToObjects(csvText);
   // sheetObjects is now an Array of Objects
   console.log(sheetObjects);
+
+  console.log('dfdfdf');
 
   generateTable(sheetObjects)
 }
