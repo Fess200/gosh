@@ -10,9 +10,14 @@ fetch(sheetURL)
 
 function generateTable(sheet) {
   const table = document.createElement("table");
+
+  console.log(sheet);
   
   for (let i = 0, max = sheet.length; i < max; i++) {
+    
     let sheetObject = sheet[i];
+
+    console.log(sheetObject);
     let name = sheetObject['Name'];
     let position = sheetObject['Position'];
     let mail = sheetObject['mail'];
