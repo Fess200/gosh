@@ -1,7 +1,4 @@
-// sheetID you can find in the URL of your spreadsheet after "spreadsheet/d/"
-// const sheetId = "1G4AyPW1VW7BxLzzhWd1Q1ZOdxWO-2HddO6S98MAJ5v0";
 const sheetId = "19VumD-Hj9-RW0uAWvSBzcZUXbr-ICAiE7lJult_Koug";
-// sheetName is the name of the TAB in your spreadsheet
 const sheetName = encodeURIComponent("Sheet1");
 const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&range=A1:D`;
 
@@ -10,13 +7,12 @@ fetch(sheetURL)
   .then((csvText) => handleResponse(csvText));
 
 function generateTable(sheet) {
-  console.log('wwww');
   const table = document.createElement("table");
 
   console.log(sheet);
-  
+
   for (let i = 0, max = sheet.length; i < max; i++) {
-    
+
     let sheetObject = sheet[i];
 
     console.log(sheetObject);
@@ -27,6 +23,7 @@ function generateTable(sheet) {
 
     const tr = document.createElement("tr");
     tr.classList.add("border_bottom");
+    tr.setAttribute("onclick", "myFunction(this)");
 
     const tdName = document.createElement("td");
     tdName.textContent = name;
@@ -40,7 +37,7 @@ function generateTable(sheet) {
 
     const tdPhone = document.createElement("td");
     tdPhone.textContent = phone;
-    
+
     tr.appendChild(tdName);
     tr.appendChild(tdPosition);
     tr.appendChild(tdMail);
@@ -49,19 +46,15 @@ function generateTable(sheet) {
     table.appendChild(tr);
   }
 
-const containerSheets = document.getElementById("container_sheets");
-console.log(containerSheets);
-containerSheets.appendChild(table);
+  const containerSheets = document.getElementById("container_sheets");
+  console.log(containerSheets);
+  containerSheets.appendChild(table);
 }
 
 function handleResponse(csvText) {
   console.log(csvText);
   let sheetObjects = csvToObjects(csvText);
-  // sheetObjects is now an Array of Objects
   console.log(sheetObjects);
-
-  console.log('dfdfdf');
-
   generateTable(sheetObjects)
 }
 
@@ -74,7 +67,6 @@ function csvToObjects(csv) {
     let row = csvSplit(csvRows[i]);
     for (let j = 0, max = row.length; j < max; j++) {
       thisObject[propertyNames[j]] = row[j];
-      // BELOW 4 LINES WILL CONVERT DATES IN THE "ENROLLED" COLUMN TO JS DATE OBJECTS
       if (propertyNames[j] === "Enrolled") {
         thisObject[propertyNames[j]] = new Date(row[j]);
       } else {
@@ -91,7 +83,9 @@ function csvSplit(row) {
 }
 
 function myFunction(tr) {
-  let soMany = 10;
   let name = tr.getElementsByClassName('name')[0].textContent;
-  alert(`Вы нажали на кнопку! ${name}`);
+  let position = tr.getElementsByClassName('position')[0].textContent;
+  let mail = tr.getElementsByClassName('mail')[0].textContent;
+  let phone = tr.getElementsByClassName('phone')[0].textContent;
+  alert(`Вы нажали на кнопку! ${name}  ${position}  ${mail}  ${phone}`);
 }
