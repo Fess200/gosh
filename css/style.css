@@ -1,0 +1,8 @@
+tr.border_bottom td {
+  border-bottom: 1px solid black;
+  padding-top: 1em;
+}
+
+td.name_field {
+  background-color: bisque;
+}
