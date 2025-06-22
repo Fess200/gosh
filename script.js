@@ -3,7 +3,7 @@
 const sheetId = "19VumD-Hj9-RW0uAWvSBzcZUXbr-ICAiE7lJult_Koug";
 // sheetName is the name of the TAB in your spreadsheet
 const sheetName = encodeURIComponent("Sheet1");
-const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&range=A2:D`;
+const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&range=A1:D`;
 
 fetch(sheetURL)
   .then((response) => response.text())
