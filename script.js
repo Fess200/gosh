@@ -26,17 +26,17 @@ function generateTable(sheet) {
     tr.setAttribute("onclick", "myFunction(this)");
 
     const tdName = document.createElement("td");
-    tdName.textContent = name;
+    tdName.appendChild(document.createTextNode(name));
     tdName.classList.add("name_field");
 
     const tdPosition = document.createElement("td");
-    tdPosition.textContent = position;
+    tdName.appendChild(document.createTextNode(position));
 
     const tdMail = document.createElement("td");
-    tdMail.textContent = mail;
+    tdName.appendChild(document.createTextNode(mail));
 
     const tdPhone = document.createElement("td");
-    tdPhone.textContent = phone;
+    tdName.appendChild(document.createTextNode(phone));
 
     tr.appendChild(tdName);
     tr.appendChild(tdPosition);
@@ -83,9 +83,9 @@ function csvSplit(row) {
 }
 
 function myFunction(tr) {
-  let name = tr.getElementsByClassName('name')[0].textContent;
-  let position = tr.getElementsByClassName('position')[0].textContent;
-  let mail = tr.getElementsByClassName('mail')[0].textContent;
-  let phone = tr.getElementsByClassName('phone')[0].textContent;
+  let name = tr.getElementsByClassName('name')[0].text;
+  let position = tr.getElementsByClassName('position')[0].text;
+  let mail = tr.getElementsByClassName('mail')[0].text;
+  let phone = tr.getElementsByClassName('phone')[0].text;
   alert(`Вы нажали на кнопку! ${name}  ${position}  ${mail}  ${phone}`);
 }
