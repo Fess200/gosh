@@ -1,4 +1,4 @@
-const sheetId = "19VumD-Hj9-RW0uAWvSBzcZUXbr-ICAiE7lJult_Koug";
+const sheetId = "1G4AyPW1VW7BxLzzhWd1Q1ZOdxWO-2HddO6S98MAJ5v0";
 const sheetName = encodeURIComponent("Sheet1");
 const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&range=A1:D`;
 
@@ -62,9 +62,6 @@ function generateTable(sheet) {
   console.log(containerSheets);
   containerSheets.appendChild(table);
 }
-
-// let sheet = [{ "Name": "name1", "Position": "Position1", "mail": "mail1", "Phone": "Phone1" }];
-// generateTable(sheet)
 
 function handleResponse(csvText) {
   console.log(csvText);
