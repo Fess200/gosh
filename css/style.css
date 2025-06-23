@@ -6,3 +6,7 @@ tr.border_bottom td {
 td.name {
   background-color: bisque;
 }
+
+td {
+  cursor: pointer;
+}
