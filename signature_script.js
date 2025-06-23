@@ -14,7 +14,7 @@ const resizeObserver = new ResizeObserver(entries => {
                 addressTitle.style.paddingTop = "20px";
             } else {
                 console.log('2');
-                addressTitle.style.paddingTop = "50px";
+                addressTitle.style.paddingTop = "31px";
             }
         }
         oldX = newX;
